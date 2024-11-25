@@ -11,8 +11,8 @@ class Location(models.Model):
     
 
 class Vehicle(models.Model):
-    start_location =models.OneToOneField("Location",on_delete=models.CASCADE, related_name='start_location_here')
-    end_location =models.OneToOneField("Location", on_delete=models.CASCADE, related_name="end_location_here")
+    start_location =models.ForeignKey("Location",on_delete=models.CASCADE, related_name='start_location_here')
+    end_location =models.ForeignKey("Location", on_delete=models.CASCADE, related_name="end_location_here")
     vehicle_name =models.CharField(max_length=120)
     vehicle_type=models.CharField(max_length=50, choices=[('bus','bus'),('leguna','leguna')])
     fare=models.PositiveIntegerField()
